@@ -9,7 +9,7 @@ import submissionRoutes from './routes/submissionRoutes.js'
 
 const app = express();
  
-const allowedOrigins = ["http://localhost:5173","https://ai-feedback-backend-80ct.onrender.com"];
+const allowedOrigins = ["http://localhost:5173","https://feedback-frontend-tau-nine.vercel.app"];
 app.use(cors({ origin: allowedOrigins, credentials: true }));
 
 //middlewares
