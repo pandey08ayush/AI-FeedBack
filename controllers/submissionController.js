@@ -14,7 +14,7 @@ export const submitResponse = async (req, res) => {
       feedback,
     });
 
-    res.status(201).json({ message: "Submission saved", submission });
+    res.status(201).json({success: true, message: "Submission saved", submission });
   } catch (error) {
     console.error("Error in submitResponse:", error);
     res.status(500).json({ message: "Server error" });
@@ -27,9 +27,9 @@ export const getSubmissionHistory = async (req, res) => {
       .sort({ createdAt: -1 })
       .limit(5);
 
-    res.status(200).json({ submissions });
+     res.status(200).json({ success: true, history: submissions });
   } catch (error) {
     console.error("Error in getSubmissionHistory:", error);
-    res.status(500).json({ message: "Server error" });
+     res.status(500).json({ success: false, message: "Server error" });
   }
 };
