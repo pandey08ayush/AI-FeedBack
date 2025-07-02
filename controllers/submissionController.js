@@ -9,7 +9,7 @@ export const submitResponse = async (req, res) => {
     const feedback = await generateFeedback(text);
 
     const submission = await Submission.create({
-      user: req.user._id,
+      user: req.user,
       text,
       feedback,
     });
@@ -23,7 +23,7 @@ export const submitResponse = async (req, res) => {
 
 export const getSubmissionHistory = async (req, res) => {
   try {
-    const submissions = await Submission.find({ user: req.user._id })
+    const submissions = await Submission.find({ user: req.user })
       .sort({ createdAt: -1 })
       .limit(5);
 
